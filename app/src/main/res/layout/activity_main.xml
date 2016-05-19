@@ -16,7 +16,7 @@
     </include>
 
     <android.support.design.widget.CoordinatorLayout
-        android:layout_marginTop="@dimen/margin_top_recycler_view"
+        android:layout_marginTop="@dimen/margin_top_with_toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

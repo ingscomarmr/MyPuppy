@@ -7,4 +7,6 @@
     <dimen name="elevacion_toolbar">4dp</dimen>
     <dimen name="elevacion_float_action_button">6dp</dimen>
     <dimen name="margin_top_recycler_view">60dp</dimen>
+
+    <dimen name="margin_top_with_toolbar">60dp</dimen>
 </resources>

@@ -1,12 +1,14 @@
 package com.omunguia.mypuppy;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.omunguia.mypuppy.bean.ListaMascotas;
 import com.omunguia.mypuppy.bean.Mascota;
 
 import java.util.List;
@@ -41,8 +43,31 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
         holder.imgvLikes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String namePet =  holder.tvPetName.getText().toString();
                 int likes = Integer.parseInt(holder.tvLikes.getText().toString()) + 1;
                 holder.tvLikes.setText(String.valueOf(likes));
+
+                Mascota mOld = null;
+                Mascota mNew = null;
+                Log.i("#MascotaAdapter", "Modificando los likes");
+               /* for (Mascota m : ListaMascotas.mascotas ) {
+
+                    if(m.getNombre().equals(namePet)){
+                        mOld = m;
+                        m.setLikes(likes);
+                        mNew = m;
+                    }
+                }
+
+                if(mOld != null || mNew != null){
+                    ListaMascotas.mascotas.remove(mOld);
+                    ListaMascotas.mascotas.add(mNew);
+                }*/
+
+
+                //for (Mascota m : ListaMascotas.mascotas ) {
+                  //  Log.i("Datos Lista",m.getNombre() + ":"+ m.getLikes().toString());
+                //}
             }
         });
     }
