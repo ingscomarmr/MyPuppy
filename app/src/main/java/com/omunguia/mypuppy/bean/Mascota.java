@@ -6,16 +6,16 @@ package com.omunguia.mypuppy.bean;
 public class Mascota {
     private String nombre;
     private int likes;
-    private String imgStr;
+    private int imgIdRecurso;
 
 
     public Mascota(){
     }
 
-    public Mascota(String nombre, int likes, String imgStr) {
+    public Mascota(int imgIdRecurso, String nombre, int likes) {
         this.nombre = nombre;
         this.likes = likes;
-        this.imgStr = imgStr;
+        this.imgIdRecurso = imgIdRecurso;
     }
 
     public String getNombre() {
@@ -34,11 +34,11 @@ public class Mascota {
         this.likes = likes;
     }
 
-    public String getImgStr() {
-        return imgStr;
+    public int getImgStr() {
+        return imgIdRecurso;
     }
 
-    public void setImgStr(String imgStr) {
-        this.imgStr = imgStr;
+    public void setImgStr(int imgStr) {
+        this.imgIdRecurso = imgStr;
     }
 }

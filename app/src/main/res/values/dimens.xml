@@ -3,4 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="elevation_app_bar">4dp</dimen>
+
+    <dimen name="elevacion_toolbar">4dp</dimen>
+    <dimen name="elevacion_float_action_button">6dp</dimen>
+    <dimen name="margin_top_recycler_view">60dp</dimen>
 </resources>

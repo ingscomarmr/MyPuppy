@@ -5,11 +5,22 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.omunguia.mypuppy.bean.Mascota;
+
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +39,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentListaLikes);
             }
         });
+
+        List<Mascota> mascotas = Arrays.asList(
+                new Mascota(R.drawable.p1, "El Petalo", 10),
+                new Mascota(R.drawable.p2, "Loba", 7),
+                new Mascota(R.drawable.p3, "El Sami", 12),
+                new Mascota(R.drawable.p4, "La Joya", 5),
+                new Mascota(R.drawable.p5, "Laica", 15)
+        );
+
+        recyclerView = (RecyclerView) findViewById(R.id.rvMain);
+        recyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new MascotaAdapter(mascotas);
+        recyclerView.setAdapter(adapter);
+
     }
 }
 
