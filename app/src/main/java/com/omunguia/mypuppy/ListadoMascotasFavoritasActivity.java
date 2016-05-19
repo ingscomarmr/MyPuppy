@@ -6,13 +6,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
-public class ListadoMascotasActivity extends AppCompatActivity {
+public class ListadoMascotasFavoritasActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.listado_mascotas);
+        setContentView(R.layout.listado_mascotas_favoritas);
 
         //para soporte de actionbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.actionBarPuppy);

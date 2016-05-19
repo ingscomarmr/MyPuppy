@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.omunguia.mypuppy.ListadoMascotasActivity"
+        <activity android:name=".ListadoMascotasFavoritasActivity"
             android:parentActivityName=".MainActivity"
             >
             <!-- soporte para button back para versiones 4.0 o menores-->

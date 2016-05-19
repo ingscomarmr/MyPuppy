@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.omunguia.mypuppy.ListadoMascotasActivity">
+    tools:context="com.omunguia.mypuppy.ListadoMascotasFavoritasActivity">
 
     <include android:id="@+id/actionBarPuppy"
         layout="@layout/actionbar"
