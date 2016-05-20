@@ -3,4 +3,5 @@
     <string name="texto_tiulo">Bienvenido a MyPuppy</string>
     <string name="texto_boton_siguiente">Siguiente >></string>
     <string name="texto_fbt_agregar_click">Aun no se puede agregar, espere la siguiente version</string>
+    <string name="app_name_favoritas">Mis Favoritas</string>
 </resources>

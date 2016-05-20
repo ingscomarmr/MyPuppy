@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="TituloTheme" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">@color/colorBlanco</item>
+        <item name="android:textSize">25dp</item>
+    </style>
+
 </resources>

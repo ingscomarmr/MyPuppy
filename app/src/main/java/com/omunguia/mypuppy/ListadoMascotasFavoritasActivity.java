@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.omunguia.mypuppy.bean.ListaMascotas;
 
@@ -26,6 +27,9 @@ public class ListadoMascotasFavoritasActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.actionBarPuppy);
         setSupportActionBar(toolbar);
 
+        TextView textViewTitulo = (TextView)findViewById(R.id.tvTituloActionBar);
+        textViewTitulo.setText(getString(R.string.app_name_favoritas));
+
         //para activar el button back
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -34,6 +38,7 @@ public class ListadoMascotasFavoritasActivity extends AppCompatActivity {
 
 
     public void initClicActionBar(){
+
         ImageView imageViewHueso = (ImageView)findViewById(R.id.myPuppyHome);
         imageViewHueso.setOnClickListener(new View.OnClickListener() {
             @Override
