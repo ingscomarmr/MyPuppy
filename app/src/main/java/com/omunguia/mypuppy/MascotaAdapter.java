@@ -2,6 +2,7 @@ package com.omunguia.mypuppy;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
     @Override
     public MascotaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_mascota, parent, false);
+
 
         return new MascotaViewHolder(view);
     }
@@ -93,6 +95,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
             imgvLikes = (ImageView) itemView.findViewById(R.id.imgvLikes);
             imgvPet = (ImageView) itemView.findViewById(R.id.imgvPet);
         }
+
     }
 
 }

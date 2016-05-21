@@ -4,4 +4,21 @@
     <string name="texto_boton_siguiente">Siguiente >></string>
     <string name="texto_fbt_agregar_click">Aun no se puede agregar, espere la siguiente version</string>
     <string name="app_name_favoritas">Mis Favoritas</string>
+    <string name="text_very_soon">Muy Pronto</string>
+
+    <!-- Menus -->
+    <string name="menu_about">Acerca de</string>
+    <string name="menu_settings">Configuraciones</string>
+    <string name="menu_show_photo_pet">Ver Foto de Mascota</string>
+    <string name="menu_delete_pet">Eliminar Mascota</string>
+    <string name="menu_edit_pet">Editar Mascota</string>
+    <string name="menu_add_pet">Agregar Mascota</string>
+
+    <string name="menu_first_five">Primeros 5</string>
+    <string name="menu_first_ten">Primeros 10</string>
+    <string name="menu_action_refresh">Refrescar</string>
+
+    <string name="text_nombre">Nombre: Omar Munguia R.</string>
+    <string name="text_edad">Edad: 28 años</string>
+    <string name="text_email">Email: omar-munguia@outlook.com</string>
 </resources>
