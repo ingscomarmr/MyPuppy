@@ -2,12 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.omunguia.mypuppy">
 
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -17,23 +21,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ListadoMascotasFavoritasActivity"
-            android:parentActivityName=".MainActivity"
             android:label="@string/app_name_favoritas"
-            >
-            <!-- soporte para button back para versiones 4.0 o menores-->
+            android:parentActivityName=".MainActivity">
+
+            <!-- soporte para button back para versiones 4.0 o menores -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity">
-            </meta-data>
+                android:value=".MainActivity" />
         </activity>
+        <activity android:name=".DetalleMascotaActivity" />
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/app_name_about"
+            android:parentActivityName=".MainActivity">
 
-
-        <activity android:name="com.omunguia.mypuppy.DetalleMascotaActivity"></activity>
-
-
+            <!-- soporte para button back para versiones 4.0 o menores -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".InfoContactActivity"
+            android:label="@string/app_name_contacto"
+            android:parentActivityName=".MainActivity">
+            <!-- soporte para button back para versiones 4.0 o menores -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>

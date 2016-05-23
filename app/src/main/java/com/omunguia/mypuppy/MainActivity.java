@@ -116,18 +116,20 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menuAbout:
-                Snackbar.make(this.getCurrentFocus(), getResources().getString(R.string.text_very_soon), Snackbar.LENGTH_LONG)
+                /*Snackbar.make(this.getCurrentFocus(), getResources().getString(R.string.text_very_soon), Snackbar.LENGTH_LONG)
                         .setAction(getResources().getString(R.string.menu_about), new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Log.i("SNACKBAR_MUNU", "CLICK ABOUT");
                             }
                         })
-                        .show();
+                        .show();*/
+                Intent intentAbout = new Intent(MainActivity.this,AboutActivity.class);
+                startActivity(intentAbout);
                 break;
             case R.id.menuSettings:
-                Snackbar.make(this.getCurrentFocus(), getResources().getString(R.string.text_very_soon), Snackbar.LENGTH_LONG)
-                        .show();
+                Intent intentContacto = new Intent(MainActivity.this,InfoContactActivity.class);
+                startActivity(intentContacto);
                 break;
         }
 

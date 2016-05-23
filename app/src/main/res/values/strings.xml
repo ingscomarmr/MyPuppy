@@ -4,6 +4,8 @@
     <string name="texto_boton_siguiente">Siguiente >></string>
     <string name="texto_fbt_agregar_click">Aun no se puede agregar, espere la siguiente version</string>
     <string name="app_name_favoritas">Mis Favoritas</string>
+    <string name="app_name_about">Acerca de</string>
+    <string name="app_name_contacto">Contactanos</string>
     <string name="text_very_soon">Muy Pronto</string>
 
     <!-- Menus -->
@@ -21,4 +23,13 @@
     <string name="text_nombre">Nombre: Omar Munguia R.</string>
     <string name="text_edad">Edad: 28 años</string>
     <string name="text_email">Email: omar-munguia@outlook.com</string>
+
+    <string name="title_name">Introduce tu Nombre</string>
+    <string name="title_email">Introduce tu Email</string>
+    <string name="title_message">Introduce tu Mensaje</string>
+    <string name="btn_send">Enviar</string>
+    <string name="text_empty_fields_message">Los campos nombre, correo y mensaje son requeridos</string>
+    <string name="text_send_email">Mensaje Enviado, Gracias :-)</string>
+    <string name="text_go_to_back">Regresar</string>
+    <string name="text_global_exception">Lo siento ocurrio un porblema, intente mas tarde</string>
 </resources>

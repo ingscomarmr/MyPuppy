@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.omunguia.mypuppy.InfoContactActivity">
+
+
+    <include android:id="@+id/actionBarPuppy"
+        layout="@layout/actionbar"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        >
+    </include>
+
+    <android.support.design.widget.TextInputEditText
+        android:layout_marginTop="@dimen/margin_top_text"
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title_name"/>
+
+    <android.support.design.widget.TextInputEditText
+        android:layout_marginTop="@dimen/margin_top_text"
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title_email"/>
+
+    <android.support.design.widget.TextInputEditText
+        android:layout_marginTop="@dimen/margin_top_text"
+        android:id="@+id/etMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+        android:inputType="textMultiLine"
+        android:hint="@string/title_message"/>
+
+    <Button
+        android:text="@string/btn_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_text"
+        android:layout_gravity="center"
+        android:onClick="sendEmail"/>
+</LinearLayout>
