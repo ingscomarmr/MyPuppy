@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menuPrimero5"
+        android:title="@string/menu_first_five"
+        android:orderInCategory="1"></item>
+
+    <item android:id="@+id/menuPrimero10"
+        android:title="@string/menu_first_ten"
+        android:orderInCategory="2"></item>
+</menu>
