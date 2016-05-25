@@ -1,15 +1,14 @@
-package com.omunguia.mypuppy;
+package com.omunguia.mypuppy.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.omunguia.mypuppy.bean.ListaMascotas;
+import com.omunguia.mypuppy.R;
 import com.omunguia.mypuppy.bean.Mascota;
 
 import java.util.List;

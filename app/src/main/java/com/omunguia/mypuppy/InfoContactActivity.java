@@ -1,5 +1,6 @@
 package com.omunguia.mypuppy;
 
+import android.os.StrictMode;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -55,7 +56,12 @@ public class InfoContactActivity extends AppCompatActivity {
             String messageBody = "<h3>Correo de contacto</h3><br/><h5>"+nameStr+"("+emailStr+")</h5><br/>"
                     + "<br/><p>" + messageStr+"</p><br/>";
 
-          Email.sendEmail("ingscomarmr@gmail.com;" + emailStr,"Contacto MyPuppy",messageStr);
+            if (android.os.Build.VERSION.SDK_INT > 9) {
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+            }
+
+            Email.sendEmail("ingscomarmr@gmail.com","Contacto MyPuppy",messageStr);
 
 
             Snackbar.make(this.getCurrentFocus(), getResources().getString(R.string.text_send_email), Snackbar.LENGTH_LONG)

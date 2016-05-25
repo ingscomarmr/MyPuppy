@@ -30,7 +30,7 @@ public class Email {
         final String address = "test.omar.mr@gmail.com";
         String from = "test.omar.mr@gmail.com";
         final String pass = "android.1988";
-        String port = "465"; // default smtp port
+        String port = "587"; // default smtp port
         String sport = "465"; // default socketfactory port
 
         Multipart multiPart;
@@ -47,13 +47,13 @@ public class Email {
         props.put("mail.smtp.socketFactory.fallback", "false");
         props.setProperty("mail.smtp.quitwait", "false");
 
-        //Session session = Session.getInstance(props,null);
-        Session session = Session.getInstance(props,
+        Session session = Session.getInstance(props);
+       /* Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(address, pass);
                     }
-                });
+                });*/
 
         session.setDebug(true);
         DataHandler handler = new DataHandler(new ByteArrayDataSource(finalString.getBytes(), "text/plain"));
@@ -67,7 +67,7 @@ public class Email {
         message.setSubject(subjectStr);
         message.setContent(multiPart);
         message.setText(messageStr);
-        Transport transport = session.getTransport("smtp");
+        Transport transport = session.getTransport("smtps");
         transport.connect(host, address, pass);
         transport.sendMessage(message, message.getAllRecipients());
         transport.close();

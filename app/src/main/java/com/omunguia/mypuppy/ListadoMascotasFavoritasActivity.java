@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.omunguia.mypuppy.adapter.MascotaAdapter;
 import com.omunguia.mypuppy.bean.ListaMascotas;
 
 public class ListadoMascotasFavoritasActivity extends AppCompatActivity {

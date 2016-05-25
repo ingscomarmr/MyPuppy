@@ -2,6 +2,9 @@ package com.omunguia.mypuppy;
 
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,38 +13,55 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.omunguia.mypuppy.adapter.MascotaAdapter;
+import com.omunguia.mypuppy.adapter.PageFragmentAdapter;
 import com.omunguia.mypuppy.bean.ListaMascotas;
-import com.omunguia.mypuppy.bean.Mascota;
+import com.omunguia.mypuppy.fragments.HomeFragment;
+import com.omunguia.mypuppy.fragments.PerfilFragment;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
+    ViewPager viewPager;
+    TabLayout tabLayout;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.actionBarPuppy);
-        setSupportActionBar(toolbar);
+        toolbar = (Toolbar) findViewById(R.id.actionBarPuppy);
+        if(toolbar != null)
+            setSupportActionBar(toolbar);
+
+        /*AGREGANDO EL LOS FRAGMENTS*/
+        viewPager = (ViewPager) findViewById(R.id.vpMainViewPager);
+        tabLayout = (TabLayout) findViewById(R.id.tlMainTabLayout);
+
+
+        List<Fragment> fragments = Arrays.asList(
+                new HomeFragment(),
+                new PerfilFragment()
+        );
+
+        viewPager.setAdapter(new PageFragmentAdapter(getSupportFragmentManager(), fragments));
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.dog_bone_filled_50);
+        tabLayout.getTabAt(1).setIcon(R.drawable.user_perfil);
+
 
         TextView textViewTitulo = (TextView)findViewById(R.id.tvTituloActionBar);
         textViewTitulo.setText(getString(R.string.app_name));
-
-        initClicActionBar();
 
         Log.i("#MainActivity.OnCreate", "Crear Menu Contextual");
         ImageView myPuppyHome = (ImageView)findViewById(R.id.myPuppyHome);
@@ -52,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         myPuppyLikes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(v.getContext(),v);
+                PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
                 popupMenu.getMenuInflater().inflate(R.menu.menu_popup, popupMenu.getMenu());
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -75,10 +95,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-    }
-
-    public void initClicActionBar(){
-
         ImageView imageView = (ImageView)findViewById(R.id.myPuppyLikes);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,17 +104,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        recyclerView = (RecyclerView) findViewById(R.id.rvMain);
-        recyclerView.setHasFixedSize(true);
-
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        adapter = new MascotaAdapter(ListaMascotas.mascotas);
-        recyclerView.setAdapter(adapter);
-
     }
-
 
     /**
      * ##########################################

@@ -1,0 +1,25 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HomeFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rvMain" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabSubir"
+        android:layout_gravity="top|right"
+        android:layout_width="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginRight="5dp"
+        android:src="@android:drawable/ic_menu_camera"
+        android:elevation="@dimen/elevacion_float_action_button"
+        android:layout_height="wrap_content" />
+
+</android.support.design.widget.CoordinatorLayout>
