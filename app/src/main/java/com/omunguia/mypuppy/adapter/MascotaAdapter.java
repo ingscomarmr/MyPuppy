@@ -17,60 +17,61 @@ import java.util.List;
  * Created by mjcruzs on 13/5/16.
  */
 public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaViewHolder> {
-
+    public boolean mascotasGrid;
     public List<Mascota> mascotas;
 
+    public MascotaAdapter(List<Mascota> mascotas, boolean mascotasGrid) {
+        this.mascotasGrid = mascotasGrid;
+        this.mascotas = mascotas;
+    }
+
     public MascotaAdapter(List<Mascota> mascotas) {
+        this.mascotasGrid = false;
         this.mascotas = mascotas;
     }
 
     @Override
     public MascotaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_mascota, parent, false);
+        View view = null;
+        if(!mascotasGrid){
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_mascota, parent, false);
+        }else{
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_grid_mascotas, parent, false);
+        }
 
-
-        return new MascotaViewHolder(view);
+        return new MascotaViewHolder(view, mascotasGrid);
     }
 
     @Override
     public void onBindViewHolder(final MascotaViewHolder holder, int position) {
         Mascota mascota = mascotas.get(position);
-        holder.imgvPet.setImageResource(mascota.getImgStr());
-        holder.imgvBounNamePet.setImageResource(R.drawable.dog_bone_filled_50);
-        holder.tvPetName.setText(mascota.getNombre());
-        holder.tvLikes.setText(String.valueOf(mascota.getLikes()));
-        holder.imgvLikes.setImageResource(R.drawable.star_filled_48);
 
-        holder.imgvLikes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String namePet =  holder.tvPetName.getText().toString();
-                int likes = Integer.parseInt(holder.tvLikes.getText().toString()) + 1;
-                holder.tvLikes.setText(String.valueOf(likes));
+        if(!mascotasGrid){
+            holder.imgvPet.setImageResource(mascota.getImgStr());
+            holder.imgvBounNamePet.setImageResource(R.drawable.dog_bone_filled_50);
+            holder.tvPetName.setText(mascota.getNombre());
+            holder.tvLikes.setText(String.valueOf(mascota.getLikes()));
+            holder.imgvLikes.setImageResource(R.drawable.star_filled_48);
 
-                Mascota mOld = null;
-                Mascota mNew = null;
-                Log.i("#MascotaAdapter", "Modificando los likes");
-               /* for (Mascota m : ListaMascotas.mascotas ) {
+            holder.imgvLikes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String namePet =  holder.tvPetName.getText().toString();
+                    int likes = Integer.parseInt(holder.tvLikes.getText().toString()) + 1;
+                    holder.tvLikes.setText(String.valueOf(likes));
 
-                    if(m.getNombre().equals(namePet)){
-                        mOld = m;
-                        m.setLikes(likes);
-                        mNew = m;
-                    }
+                    Mascota mOld = null;
+                    Mascota mNew = null;
+                    Log.i("#MascotaAdapter", "Modificando los likes");
                 }
+            });
+        }else{
+            //imgvPet, tvLikes, imgvLikes
+            holder.imgvPet.setImageResource(mascota.getImgStr());
+            holder.tvLikes.setText(String.valueOf(mascota.getLikes()));
+            holder.imgvLikes.setImageResource(R.drawable.star_filled_48);
+        }
 
-                if(mOld != null || mNew != null){
-                    ListaMascotas.mascotas.remove(mOld);
-                    ListaMascotas.mascotas.add(mNew);
-                }*/
-
-
-                //for (Mascota m : ListaMascotas.mascotas ) {
-                  //  Log.i("Datos Lista",m.getNombre() + ":"+ m.getLikes().toString());
-                //}
-            }
-        });
     }
 
     @Override
@@ -84,15 +85,22 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
         public TextView tvLikes;
         public ImageView imgvLikes;
         public ImageView imgvPet;
-
-        public MascotaViewHolder(View itemView) {
+        //imgvPet, tvLikes, imgvLikes
+        public MascotaViewHolder(View itemView, boolean mascotasGrid) {
             super(itemView);
 
-            imgvBounNamePet = (ImageView) itemView.findViewById(R.id.imgvBounNamePet);
-            tvPetName = (TextView) itemView.findViewById(R.id.tvPetName);
-            tvLikes = (TextView) itemView.findViewById(R.id.tvLikes);
-            imgvLikes = (ImageView) itemView.findViewById(R.id.imgvLikes);
-            imgvPet = (ImageView) itemView.findViewById(R.id.imgvPet);
+            if(!mascotasGrid){
+                imgvBounNamePet = (ImageView) itemView.findViewById(R.id.imgvBounNamePet);
+                imgvLikes = (ImageView) itemView.findViewById(R.id.imgvLikes);
+                imgvPet = (ImageView) itemView.findViewById(R.id.imgvPet);
+                tvLikes = (TextView) itemView.findViewById(R.id.tvLikes);
+                tvPetName = (TextView) itemView.findViewById(R.id.tvPetName);
+            }else{
+                imgvPet = (ImageView) itemView.findViewById(R.id.imgvPet);
+                tvLikes = (TextView) itemView.findViewById(R.id.tvLikes);
+                imgvLikes = (ImageView) itemView.findViewById(R.id.imgvLikes);
+            }
+
         }
 
     }
