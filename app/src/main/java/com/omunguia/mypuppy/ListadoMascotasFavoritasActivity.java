@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.omunguia.mypuppy.adapter.MascotaAdapter;
 import com.omunguia.mypuppy.bean.ListaMascotas;
 
+import db.BaseDatos;
+
 public class ListadoMascotasFavoritasActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -63,7 +65,8 @@ public class ListadoMascotasFavoritasActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new MascotaAdapter(ListaMascotas.mascotas);
+        BaseDatos baseDatos = new BaseDatos(getApplicationContext());
+        adapter = new MascotaAdapter(baseDatos.getMascotasTop5());
         recyclerView.setAdapter(adapter);
 
     }

@@ -1,5 +1,7 @@
 package com.omunguia.mypuppy;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -22,11 +24,15 @@ import android.widget.TextView;
 import com.omunguia.mypuppy.adapter.MascotaAdapter;
 import com.omunguia.mypuppy.adapter.PageFragmentAdapter;
 import com.omunguia.mypuppy.bean.ListaMascotas;
+import com.omunguia.mypuppy.bean.Mascota;
 import com.omunguia.mypuppy.fragments.HomeFragment;
 import com.omunguia.mypuppy.fragments.PerfilFragment;
 
 import java.util.Arrays;
 import java.util.List;
+
+import db.BaseDatos;
+import db.BaseDatosConfig;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -104,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        initDBHappyPath(getApplicationContext());
     }
 
     /**
@@ -169,6 +176,23 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return super.onContextItemSelected(item);
+    }
+
+    public void initDBHappyPath(Context context){
+        Log.i("#Crear tabla", "Inicializa datos de mascotas");
+        BaseDatos baseDatos = new BaseDatos(context);
+
+        if(baseDatos.countMascotas() <= 0){
+            for (Mascota m:
+                    ListaMascotas.mascotas) {
+                ContentValues cv = new ContentValues();
+                cv.put(BaseDatosConfig.Puppy.PUPPY_NOMBRE, m.getNombre());
+                cv.put(BaseDatosConfig.Puppy.PUPPY_LIKES, 0);
+                cv.put(BaseDatosConfig.Puppy.PUPPY_IMG_RECURSO_ID, m.getImgStr());
+                Log.i("#inicializa mascotas", "Insertar mascota:" + m.getNombre());
+                baseDatos.insertMascota(cv);
+            }
+        }
     }
 
 }

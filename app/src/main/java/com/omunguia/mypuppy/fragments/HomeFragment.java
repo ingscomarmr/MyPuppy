@@ -1,11 +1,13 @@
 package com.omunguia.mypuppy.fragments;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,10 @@ import android.view.ViewGroup;
 import com.omunguia.mypuppy.R;
 import com.omunguia.mypuppy.adapter.MascotaAdapter;
 import com.omunguia.mypuppy.bean.ListaMascotas;
+import com.omunguia.mypuppy.bean.Mascota;
+
+import db.BaseDatos;
+import db.BaseDatosConfig;
 
 
 public class HomeFragment extends Fragment {
@@ -43,7 +49,10 @@ public class HomeFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new MascotaAdapter(ListaMascotas.mascotas);
+
+        BaseDatos baseDatos = new BaseDatos(getContext());
+
+        adapter = new MascotaAdapter(baseDatos.getMascotas());
         recyclerView.setAdapter(adapter);
     }
 }

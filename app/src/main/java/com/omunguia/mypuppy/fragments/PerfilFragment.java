@@ -8,11 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.omunguia.mypuppy.R;
 import com.omunguia.mypuppy.adapter.MascotaAdapter;
 import com.omunguia.mypuppy.bean.ListaMascotas;
+
+import db.BaseDatos;
 
 
 /**
@@ -22,7 +25,7 @@ public class PerfilFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
+    private LinearLayoutManager layoutManager;
 
     public PerfilFragment() {
         // Required empty public constructor
@@ -44,15 +47,22 @@ public class PerfilFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        initRecyclerView(getView());
+    }
 
     public void initRecyclerView(View view){
         recyclerView = (RecyclerView) view.findViewById(R.id.rvMainRecyclerView);
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayout.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new MascotaAdapter(ListaMascotas.mascotas,true);
+        BaseDatos baseDatos = new BaseDatos(getContext());
+        adapter = new MascotaAdapter(baseDatos.getMascotas(),true);
         recyclerView.setAdapter(adapter);
     }
 
