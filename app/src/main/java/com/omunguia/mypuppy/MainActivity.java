@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setIcon(R.drawable.user_perfil);
 
 
+
         TextView textViewTitulo = (TextView)findViewById(R.id.tvTituloActionBar);
         textViewTitulo.setText(getString(R.string.app_name));
 

@@ -3,6 +3,7 @@ package com.omunguia.mypuppy.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class PageFragmentAdapter extends FragmentPagerAdapter {
     public PageFragmentAdapter(FragmentManager fragmentManager, List<Fragment> fragments) {
         super(fragmentManager);
         this.fragments = fragments;
+
     }
 
     @Override

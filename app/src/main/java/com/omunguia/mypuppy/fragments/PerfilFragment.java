@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,6 @@ import android.widget.LinearLayout;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.omunguia.mypuppy.R;
 import com.omunguia.mypuppy.adapter.MascotaAdapter;
-import com.omunguia.mypuppy.bean.ListaMascotas;
 
 import db.BaseDatos;
 
@@ -21,7 +21,7 @@ import db.BaseDatos;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PerfilFragment extends Fragment {
+public class PerfilFragment extends Fragment{
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -65,5 +65,4 @@ public class PerfilFragment extends Fragment {
         adapter = new MascotaAdapter(baseDatos.getMascotas(),true);
         recyclerView.setAdapter(adapter);
     }
-
 }
